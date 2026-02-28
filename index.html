@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Per Andrea — Festa della Donna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          background: url(sfonfo.jpg);
+          background-size: 23rem 47rem;
+          background-repeat: no-repeat;
+          background-position-y: 0rem;
+      }
+   .img1 {
+    width: 20rem;
+    position: relative;
+    top: -4rem;
+    left: 7%;
+}
+ .textbottom {
+    position: relative;
+    top: 0rem !important;
+    text-align: center;
+    font-size: 1.6rem;
+}
+      .texttop {
+    position: relative;
+    top: -1rem !important;
+    text-align: center;
+    font-size: 1.9rem;
+}
+        /*caricare font personalizzato da file ttf*/
+        @font-face {
+              font-family: 'CustomFont';
+              src: url('ValentineRosyalinItalic.ttf') format('truetype');
+        }
+        h1 {
+              font-family: 'CustomFont', serif;
+              color: #FFD700;
+              text-shadow: 1px 1px 2px #000000; /* Aggiunto text-shadow */
+        }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.02);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes burst-animation {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      .img1 {
+        animation: pulse 2s infinite ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="texttop" data-text="8 marzo 2026 <br>Feliz día de la mujer!!!"></h1>
+      <img class="img1" src="img1.png" alt="">
+    <h1 class="textbottom" data-text="Ti amo immensamente hasta el fundo de mi corazón mi compagnera de vida!"></h1>
+    <!-- Parchment modal (aggiunto) -->
+    <style>
+      /* Parchment modal styles - non toccare altri elementi della pagina */
+      #parchment-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);opacity:0;pointer-events:none;transition:opacity .36s ease;z-index:9999}
+      #parchment-overlay.show{opacity:1;pointer-events:auto}
+      .parchment{
+        width:min(720px,92%);
+        max-height:86vh;
+        background: #fbf1dc;
+        border-radius:4px;
+        box-shadow:0 24px 60px rgba(0,0,0,.6);
+        border-left: 14px solid #d6c199;
+        border-right: 14px solid #d6c199;
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity:0;
+        transition: transform 1.2s cubic-bezier(0.1, 1, 0.2, 1), opacity 0.4s;
+        position:relative;
+        font-family:'Playfair Display', serif;
+        color:#2b220f;
+        display: flex;
+        flex-direction: column;
+      }
+      .parchment.show{
+        transform: scaleY(1);
+        opacity:1;
+      }
+      .parchment-content {
+        flex: 1;
+        overflow-y: auto;
+        
+        background-image: 
+          repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 2px, transparent 2px, transparent 4px),
+          linear-gradient(to right, rgba(0,0,0,0.05) 0%, transparent 5%, transparent 95%, rgba(0,0,0,0.05) 100%);
+        scrollbar-width: thin;
+        scrollbar-color: #8b5e2b transparent;
+      }
+      /* Custom Scrollbar for Chrome/Safari */
+      .parchment-content::-webkit-scrollbar {
+        width: 8px;
+      }
+      .parchment-content::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .parchment-content::-webkit-scrollbar-thumb {
+        background-color: #8b5e2b;
+        border-radius: 10px;
+        border: 2px solid #fbf1dc;
+      }
+      /* Rotolo superiore */
+      .parchment::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -18px;
+        right: -18px;
+        height: 45px;
+        background: linear-gradient(to bottom, #d6c199, #c4ae85, #d6c199);
+        border-radius: 10px 10px 5px 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 10;
+        border: 1px solid #b39b6a;
+      }
+      /* Rotolo inferiore */
+      .parchment::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: -18px;
+        right: -18px;
+        height: 45px;
+        background: linear-gradient(to top, #d6c199, #c4ae85, #d6c199);
+        border-radius: 5px 5px 10px 10px;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        z-index: 10;
+        border: 1px solid #b39b6a;
+      }
+      .parchment h2{margin:0 0 .5rem;text-align:center;font-size:1.4rem}
+      .parchment .seal{
+        position:absolute;
+        right:25px;
+        bottom:55px;
+        width:75px;
+        height:75px;
+        border-radius:50%;
+        background: radial-gradient(circle at 30% 30%, #a52a2a, #7b1d1d);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.3);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:rgba(255,255,255,0.7);
+        font-weight:700;
+        font-size:14px;
+        transform:rotate(-15deg);
+        z-index: 15;
+        border: 2px solid #8b0000;
+      }
+      .parchment .seal::after {
+        content: "❤";
+        font-size: 32px;
+        color: rgba(0,0,0,0.2);
+      }
+      .parchment .letter{
+        white-space:pre-wrap;
+        line-height:1.6;
+        font-size:1.1rem;
+        padding-top:1rem;
+        font-style: italic;
+        text-align: center;
+        color: #4a3721;
+      }
+      .parchment .controls{display:flex;justify-content:center;margin-top:1rem}
+      .close-parchment{background:#8b5e2b;color:#fff;border:none;padding:.6rem 1rem;border-radius:8px;cursor:pointer;box-shadow:0 6px 12px rgba(0,0,0,.2);font-weight:600}
+      .close-parchment:active{transform:translateY(1px)}
+      @media (max-width:420px){.parchment{padding:1.6rem}}
+      /* Open button (fixed, non-intrusive) */
+   #open-parchment {
+    position: absolute;
+    right: 1rem;
+    bottom: 15.8rem;
+    z-index: 10001;
+    background: linear-gradient(to right, #E74C3C, #C0392B); /* Gradiente rosso */
+    border: none;
+    color: #FFD700; /* Oro brillante */
+    padding: .7rem 1.5rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Ombreggiatura adattata */
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'CustomFont', serif;
+    width: 20rem;
+    min-height: 4rem;
+    font-size: 1.4rem;
+    z-index: 0;
+    transition: all 0.3s ease; /* Transizione per effetti hover/active */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+#btn-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombreggiatura per far risaltare l'oro */
+}
+
+.heart-icon {
+    font-size: 2.2rem;
+    animation: heartBeat 1.5s infinite;
+    color: #FFFFFF; /* Bianco puro per spezzare lo sfondo rosso */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6)); /* Leggero bagliore */
+    position: relative;
+    top:0.5rem;
+  }
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+#open-parchment:hover {
+    transform: translateY(-2px); /* Leggero sollevamento */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Ombreggiatura più pronunciata */
+}
+
+#open-parchment:active {
+    transform: translateY(1px); /* Leggera pressione */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombreggiatura più piccola */
+}
+
+#open-parchment.burst {
+    animation: burst-animation 0.6s ease-out;
+}
+     #open-parchment:active{transform:translateY(1px)}
+    </style>
+
+    <button id="open-parchment" aria-controls="parchment-overlay" title="Abrir">
+      <span class="heart-icon">❤</span>
+      <span id="btn-text">Abrir</span>
+      <span class="heart-icon">❤</span>
+    </button>
+
+    <div id="parchment-overlay" aria-hidden="true">
+      <div class="parchment" role="dialog" aria-labelledby="parchment-title" aria-modal="true">
+        
+        <div class="parchment-content">
+          <div class="seal"></div>
+          
+          <div class="letter">
+
+            <p> <img src="images.jpg" alt="">
+              Querida amor de mi vida Andrea,
+ quiero agradecerte por estar a mi lado, por la persona extraordinaria y única que eres. Quiero estar aquí hoy para celebrarte y expresarte cuánto más importante es la mujer al lado de un hombre que la vida misma, y cómo, para mí, cada día eres la persona más importante que la vida me ha dado. Quiero agradecerte, amor de mi vida, por todas las cosas preciosas que haces por mí cada día y por darme felicidad y amor estando aquí a tu lado, y estando aquí en cada momento de nuestras vidas. Cada momento eres mi apoyo, dándome la fuerza para enfrentar cada desafío de la vida sin miedo porque te siento aquí a mi lado en cada momento. Gracias por mostrarme tu preciosa sonrisa a cada momento, que, como el sol, me abre los ojos, llenando mi corazón de puro amor, y por permitirme comenzar a afrontar la vida con energía desde la mañana. Gracias por estar aquí y ser la persona en la que confío cada día, quien me enseña cosas nuevas a cada momento y me ayuda a ser mejor persona a cada momento. Gracias por estar aquí incluso en esos momentos difíciles, y ha habido tantos, y fuiste capaz de borrar cada preocupación en mí con tus preciosas y sabias palabras, animándome a reaccionar y ayudándome a ver la vida desde una perspectiva diferente. Quiero agradecerte por toda la ayuda que me das y por compartir juntos el proyecto de Vittorio. Cuando nos aplicamos juntos, me siento unido a ti. Gracias por apoyarme en esto y por todo el extraordinario trabajo que hemos hecho juntos. Estoy feliz con lo que hemos logrado. Cada momento admiro tu extraordinaria fuerza y el compromiso que pones en todo lo que haces porque te apasiona, y me encanta ver que incluso cuando el desafío es difícil, nunca te rindes y siempre logras darlo todo para llegar al final. Estoy orgulloso de ti, y cada momento eres, para mí, ¡el número uno en todo el universo! Quiero decirte que cada día eres mi inspiración y cada momento que pasamos juntos es único y especial porque me encanta jugar y bromear juntos y, sobre todo, me encanta estar aquí y celebrar cada hito que alcanzamos porque siento que es un momento pequeño y único para atesorar en lo profundo de nuestros corazones. Quiero desearte un día inolvidable hoy para celebrar la mujer que eres, así como la celebramos a ella todos los días. Me encanta estar aquí y amarte con todo mi corazón porque, cada día, eres la estrella que guía mi vida y la que borra cada miedo dentro de mí. Admiro cómo cada día das todo por las personas que te aman y te cuidan, y este es un rasgo que muchos no poseen, el amor de mi vida. Cada vez que saboreo la forma en que me amas, siento una felicidad que explota dentro de mí que no puedo explicar. Cada momento me siento completa solo en tus preciosos abrazos, donde cada día me haces sentir completa y que no necesito nada más. Amo como cada momento sabes como, con tu dulce voz, me haces cerrar suavemente los ojos mientras me abrazas fuerte y me sostienes fuerte, escuchando el latido de tu dulce corazón, el cual agradezco con cada latido porque mantiene viva a mi preciosa compañera de vida. Quiero estar aquí a tu lado y abrazarte fuerte por siempre y para siempre, amor de mi vida, para alejarte de todo daño y protegerte cada momento con todo mi amor. Quiero agradecerte por existir, amor de mi vida, y por completarme cada momento. Eres más importante que el oxígeno que me mantiene viva. Gracias por hacer que mi corazón se complete llenándolo de ti. Te amo inmensamente desde lo más profundo de mi corazón, que late aquí solo y solo para ti, amor de mi vida, en mi pecho. Cada momento lleva tu nombre Andrea dentro de él, indeleblemente, por toda mi vida y más allá, mientras doy la bienvenida a tu preciosa alma para protegerla en cada momento de todo daño y para darte todo mi amor. Te amo infinitamente desde lo más profundo de mi mente, donde eres el sueño más hermoso y único, el que da color a mi vida y hace de cada día una aventura para vivir juntos con todo nuestro amor infinito. Te amo infinitamente, mi dulce Andrea, eres la estrella que brilla en mi corazón, el ángel más sabio y único de todo el cielo que guía mis pasos en la seguridad de tu corazón, tú que eres mi preciosa mogliettina numero uno de todo el universo, tú que eres mi preciosa compañera de vida con quien quiero compartir cada instante de mi vida, tú que eres mi precioso y único pingüino a quien quiero amar por siempre y más allá, ¡mi todo! Feliz Día de la Mujer, amor de mi vida, con un profundo beso y un abrazo infinito de tu ratoncita consentida. Que Dios siempre te bendiga, amor de mi vida, junto con nuestra preciosa relación, y bendiga cada meta que alcancemos juntos con todo nuestro amor y nuestro vínculo que crece cada día con todo nuestro amor. A+G+GIOAN+BANANON=familia hoy, por siempre y más allá.
+<iframe style="
+    width: 20rem;
+    height: 14rem;"  src="https://www.youtube-nocookie.com/embed/r4l1jw8BHoY?list=RDr4l1jw8BHoY&autoplay=1&iv_load_policy=3&loop=1&start=" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+
+    <script>
+      (function(){
+        var overlay = document.getElementById('parchment-overlay');
+        var parchment = overlay.querySelector('.parchment');
+        var parchmentContent = overlay.querySelector('.parchment-content');
+        function openP(){ 
+          if(parchmentContent) parchmentContent.scrollTop = 0;
+          overlay.classList.add('show'); 
+          overlay.setAttribute('aria-hidden','false'); 
+          setTimeout(function(){ parchment.classList.add('show'); },60); 
+        }
+        function closeP(){ parchment.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); setTimeout(function(){ overlay.classList.remove('show'); },420); }
+        // Apri tramite bottone (non aprire automaticamente)
+        var openBtn = document.getElementById('open-parchment');
+        if(openBtn){ openBtn.addEventListener('click', function(){
+          // Aggiungi l'animazione burst
+          openBtn.classList.add('burst');
+          // Rimuovi l'animazione dopo che è finita
+          setTimeout(() => {
+            openBtn.classList.remove('burst');
+          }, 600); // Durata dell'animazione
+          setTimeout(openP, 30);
+        }); }
+        // Chiudi al click esterno o sul pulsante
+        overlay.addEventListener('click', function(e){ if(e.target === overlay || e.target.classList.contains('close-parchment')) closeP(); });
+        // Logica per cambiare il testo del bottone
+          var btnTextSpan = document.getElementById('btn-text');
+          var alternateTexts = ["Abrir", "Andrea #1 de todo el universo!"];
+          var currentTextIndex = 0;
+          setInterval(function() {
+            btnTextSpan.style.opacity = 0;
+            setTimeout(function() {
+              currentTextIndex = (currentTextIndex + 1) % alternateTexts.length;
+              btnTextSpan.textContent = alternateTexts[currentTextIndex];
+              btnTextSpan.style.opacity = 1;
+            }, 500);
+          }, 4000);
+
+          // Esc per chiudere
+          document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeP(); });
+        // Funzione per l'effetto di scrittura
+        function typeWriter(element, text, i, callback) {
+          if (i < text.length) {
+            // Gestisce i tag <br> per andare a capo correttamente
+            if (text.substring(i, i + 4) === '<br>') {
+              element.innerHTML += '<br>';
+              i += 4;
+            } else {
+              element.innerHTML += text.charAt(i);
+              i++;
+            }
+            setTimeout(() => typeWriter(element, text, i, callback), 70); // Velocità di scrittura
+          } else if (callback) {
+            callback();
+          }
+        }
+
+        // Avvia l'effetto di scrittura per tutti gli h1 con data-text
+        document.addEventListener('DOMContentLoaded', () => {
+          const h1Elements = document.querySelectorAll('h1[data-text]');
+          let currentH1Index = 0;
+
+          function startTypingForNextH1() {
+            if (currentH1Index < h1Elements.length) {
+              const h1 = h1Elements[currentH1Index];
+              const textToType = h1.getAttribute('data-text');
+              h1.innerHTML = ''; // Pulisce il contenuto iniziale
+              typeWriter(h1, textToType, 0, () => {
+                currentH1Index++;
+                startTypingForNextH1(); // Passa al prossimo h1 dopo aver finito
+              });
+            }
+          }
+          startTypingForNextH1();
+        });
+      })();
+    </script>
+  </body>
+</html>
